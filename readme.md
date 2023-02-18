@@ -1,4 +1,4 @@
-# NC-Rides again
+# 🚲 NC-Rides again 🚲
 
 With more and more people taking to cycling in cities and towns, the demand for bikes has skyrocketed. Jumping on the trend you decide to leave the hustle and bustle of the rush hour commute and open a bike store!
 
@@ -6,7 +6,7 @@ Our store is going to be a full service, one stop shop for custom bikes, servici
 
 > Every **bike** is made up of different **components**, these **components** have a **maximum lifespan** but that doesn't mean that every **component** will be in a perfect state - some maybe be previously used or even completely broken! Whenever a **bike** is taken out for a ride the **components** will deteriorate, and different types of bikes may cause their **components** to deteriorate at different rate.
 
-You can design your classes how you see fit, but remember all methods **must** be thoroughly tested using TDD.
+### 💡 It is up to you to design your classes how you see fit, this includes the attributes and how your methods work. But remember all methods **must** be thoroughly tested using TDD.💡
 
 ---
 
@@ -32,6 +32,14 @@ deactivate
 
 ---
 
+💡 You may want to use print statements along side returns to see your classes in action. By default, Pytest shows your print statements on failing tests. This is not super useful to see your great work in action. A handy flag to show your statements in your passing test suite would look like this:
+
+```sh
+PYTHONPATH=$(pwd) pytest -vrP test/test_file_name.py
+```
+
+This will then show your print statement on all passing tests. 💡
+
 ### Task 1 - Create a Component Class
 
 Create a `Component` class. Each component will only have a certain lifespan (measured by the number of uses) and different components could have different lifespans.
@@ -40,9 +48,7 @@ A `Component` should have:
 
 -   A way to track it's lifespan - we will need to know what it's `current_state` and `max_lifespan` are.
 
-The `Component` class should have two methods:
-
--   `use_component()` - This method should decrease the Component's `current_state` by a given amount and print a message that depends on whether it is usable or not. If the component `current_state` is **0** then it is `broken` and would be unusable.
+The `Component` class should have a `check_condition()` method:
 
 -   `check_condition()` - This method should return the `current_state` of the `Component` and print a message with more detail - up to you how you implement but the state of the `Component` could range from "Pristine" and "Good" all the way to "Fragile" and "Broken" depending on the number of uses it has left.
 
@@ -52,7 +58,7 @@ The `Component` class should have two methods:
 
 Now we have a `Component` class we can think about what components there might be.
 
-Your task is to create Classes for at least the following components:
+Your task is to create `child` classes for at least the following components:
 
 -   `Bell`
 -   `Brakes`
@@ -62,6 +68,8 @@ Your task is to create Classes for at least the following components:
 -   `Tyres`
 
 As they are all types of `Components` they should inherit the methods and any attributes of the `Component` class.
+
+Each `child` class should have a custom method that shows how each part is used and decreases the `current_state` of the component. Each part can only be used if it is not broken.
 
 ---
 
@@ -75,7 +83,7 @@ Our bikes will also need a few methods:
 
 -   `ride()` If all the components are in good working order, a customer can ride the bike.
 
-    -   If all components are not broken, this should affect the `Bike` `Components`
+    -   If all components are not broken, this should affect the `Bike` `Components`. Think about how this would affect the `Component` current state and maximum lifespan.
     -   If all the components are fine or pristine, this should return a print statement about the quality of the ride.
     -   If any are fragile but none are broken, this should return a different print statement about the quality of the ride.
 
