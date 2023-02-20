@@ -63,8 +63,6 @@ Your task is to create `child` classes for at least the following components:
 -   `Bell`
 -   `Brakes`
 -   `Chain`
--   `Frame`
--   `Gears`
 -   `Tyres`
 
 As they are all types of `Components` they should inherit the methods and any attributes of the `Component` class.
@@ -101,9 +99,9 @@ Great! We now have the core building blocks of what makes a bike. Use your `pare
 
 `Racing` bikes will increase the wear on their `Tyres` and `Chain` 5% more per use.
 
-`BMX` bikes don't have `Brakes` so their `Tyres` wear 15% more per use. Their `Frames` are 10% stronger than standard bikes.
+`BMX` bikes don't have `Brakes` so their `Tyres` wear 15% more per use.
 
-`Mountain` bikes increase the wear on their `Frame` by 12% and have a 15% stronger `Chain`
+`Mountain` bikes have a 15% stronger `Chain`.
 
 `Street` bikes increase the wear on their `Brakes` by 5% as all city riders stop at red lights.
 
