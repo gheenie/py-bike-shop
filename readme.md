@@ -131,9 +131,9 @@ The `Service_Person` will need a few methods:
 
 ---
 
-## Day 2 - Exceptions
+## Exceptions
 
-Now we've learnt about Exceptions and how to handle and test them let's put it into practice.
+Now we've built all our components, bikes and service team, its time we look at Exceptions and how to handle and test them. Let's put it into practice.
 
 Have a look at the classes you've created and think about what could go wrong and how you might handle that? Here's a couple of ideas to get you started:
 
