@@ -2,7 +2,7 @@ from src.component import (Bell, Brakes, Chain, Tyres)
 from src.bikes import (Bike)
 
 
-def test_initialising_bike():
+def test_initializing_bike():
     new_bell = Bell(0, 10)
     new_brakes = Brakes(0, 20)
     new_chain = Chain(0, 30)
