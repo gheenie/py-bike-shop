@@ -22,7 +22,7 @@ def test_initialising_bike():
     # another_bell = Bell(0, 10)
     # assert new_bike.components['bell'] == another_bell
 
-def test_ride_when_no_components_are_broken():
+def test_ride_when_all_components_pristine_or_good():
     new_bell = Bell(0, 10)
     new_brakes = Brakes(0, 20)
     new_chain = Chain(0, 30)
@@ -51,3 +51,33 @@ def test_ride_when_at_least_1_component_is_broken():
     assert new_bike.components['brakes'].current_state == 0
     assert new_bike.components['chain'].current_state == 0
     assert new_bike.components['tyres'].current_state == 40
+
+def test_ride_when_component_is_poor():
+    new_bell = Bell(5, 10)
+    new_brakes = Brakes(0, 20)
+    new_chain = Chain(0, 30)
+    new_tyres = Tyres(0, 40)
+    new_bike = Bike(new_bell, new_brakes, new_chain, new_tyres)
+
+    message = new_bike.ride()
+
+    assert message == 'poor ride'
+    assert new_bike.components['bell'].current_state == 6
+    assert new_bike.components['brakes'].current_state == 2
+    assert new_bike.components['chain'].current_state == 3
+    assert new_bike.components['tyres'].current_state == 4
+
+def test_ride_when_component_is_fragile():
+    new_bell = Bell(9, 10)
+    new_brakes = Brakes(0, 20)
+    new_chain = Chain(0, 30)
+    new_tyres = Tyres(0, 40)
+    new_bike = Bike(new_bell, new_brakes, new_chain, new_tyres)
+
+    message = new_bike.ride()
+
+    assert message == 'fragile ride'
+    assert new_bike.components['bell'].current_state == 10
+    assert new_bike.components['brakes'].current_state == 2
+    assert new_bike.components['chain'].current_state == 3
+    assert new_bike.components['tyres'].current_state == 4
