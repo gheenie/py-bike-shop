@@ -31,48 +31,49 @@ class Bell(Component):
     def __init__(self, current_state, max_lifespan):
         super().__init__(current_state, max_lifespan)
 
-    def use(self):
+    def use(self, multiplier=1):
 
         if self.check_condition() == 'Broken':
             return False
 
-        self.current_state += 1
+        self.current_state += 1 * multiplier
         return True
+
 
 class Brakes(Component):
     def __init__(self, current_state, max_lifespan):
         super().__init__(current_state, max_lifespan)
 
-    def use(self):
+    def use(self, multiplier=1):
 
         if self.check_condition() == 'Broken':
             return False
 
-        self.current_state += 2
+        self.current_state += 2 * multiplier
         return True
+
 
 class Chain(Component):
     def __init__(self, current_state, max_lifespan):
         super().__init__(current_state, max_lifespan)
 
-    def use(self):
+    def use(self, multiplier=1):
 
         if self.check_condition() == 'Broken':
             return False
 
-        self.current_state += 3
+        self.current_state += 3 * multiplier
         return True
+
 
 class Tyres(Component):
     def __init__(self, current_state, max_lifespan):
         super().__init__(current_state, max_lifespan)
 
-    def use(self):
+    def use(self, multiplier=1):
 
         if self.check_condition() == 'Broken':
             return False
 
-        self.current_state += 4
+        self.current_state += 4 * multiplier
         return True
-
-
