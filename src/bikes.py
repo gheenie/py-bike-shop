@@ -10,6 +10,10 @@ class Bike:
             'tyres': tyres
         }
 
+    def use_components(self):
+        for key in self.components:
+            self.components[key].use()
+
     def ride(self):
         all_component_states = [
             self.components[key].check_condition() for key in self.components]
@@ -19,8 +23,7 @@ class Bike:
             print(message)
             return message
 
-        for key in self.components:
-            self.components[key].use()
+        self.use_components()
 
         if 'Fragile' in all_component_states:
             message = 'fragile ride'
@@ -58,28 +61,8 @@ class RacingBike(Bike):
     def __init__(self, bell, brakes, chain, tyres):
         super().__init__(bell, brakes, chain, tyres)
 
-    def ride(self):
-        all_component_states = [
-            self.components[key].check_condition() for key in self.components]
-
-        if 'Broken' in all_component_states:
-            message = 'bike is broken'
-            print(message)
-            return message
-
+    def use_components(self):
         self.components['chain'].use(1.05)
         self.components['brakes'].use()
         self.components['bell'].use()
         self.components['tyres'].use(1.05)
-
-        if 'Fragile' in all_component_states:
-            message = 'fragile ride'
-
-        elif 'Poor' in all_component_states:
-            message = 'poor ride'
-
-        else:
-            message = 'perfect ride'
-
-        print(message)
-        return message
