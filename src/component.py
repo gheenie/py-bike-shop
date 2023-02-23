@@ -39,7 +39,7 @@ class Bell(Component):
         self.current_state += 1
         return True
 
-class Brake(Component):
+class Brakes(Component):
     def __init__(self, current_state, max_lifespan):
         super().__init__(current_state, max_lifespan)
 
