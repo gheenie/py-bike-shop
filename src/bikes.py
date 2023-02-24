@@ -68,34 +68,34 @@ class RacingBike(Bike):
         self.components['tyres'].use(1.05)
 
 
-# class BMXBike(Bike):
-#     def __init__(self, bell, chain, tyres):
-#         super().__init__(bell, None, chain, tyres)
+class BMXBike(Bike):
+    def __init__(self, bell, chain, tyres):
+        super().__init__(bell, None, chain, tyres)
+        del self.components['brakes']
 
-#     def use_components(self):
-#         self.components['chain'].use(1.05)
-#         self.components['brakes'].use()
-#         self.components['bell'].use()
-#         self.components['tyres'].use(1.05)
-
-
-# class MountainBike(Bike):
-#     def __init__(self, bell, brakes, chain, tyres):
-#         super().__init__(bell, brakes, chain, tyres)
-
-#     def use_components(self):
-#         self.components['chain'].use(0.85)
-#         self.components['brakes'].use()
-#         self.components['bell'].use()
-#         self.components['tyres'].use()
+    def use_components(self):
+        self.components['chain'].use()
+        self.components['bell'].use()
+        self.components['tyres'].use(1.15)
 
 
-# class StreetBike(Bike):
-#     def __init__(self, bell, brakes, chain, tyres):
-#         super().__init__(bell, brakes, chain, tyres)
+class MountainBike(Bike):
+    def __init__(self, bell, brakes, chain, tyres):
+        super().__init__(bell, brakes, chain, tyres)
 
-#     def use_components(self):
-#         self.components['chain'].use()
-#         self.components['brakes'].use(1.05)
-#         self.components['bell'].use()
-#         self.components['tyres'].use()
+    def use_components(self):
+        self.components['chain'].use(0.85)
+        self.components['brakes'].use()
+        self.components['bell'].use()
+        self.components['tyres'].use()
+
+
+class StreetBike(Bike):
+    def __init__(self, bell, brakes, chain, tyres):
+        super().__init__(bell, brakes, chain, tyres)
+
+    def use_components(self):
+        self.components['chain'].use()
+        self.components['brakes'].use(1.05)
+        self.components['bell'].use()
+        self.components['tyres'].use()
