@@ -20,7 +20,7 @@ def test_initializing_bike():
     new_bike.components['bell'].use()
     assert new_bell.current_state == 2
 
-    # another_bell = Bell(0, 10)
+    # another_bell = Bell(2, 10)
     # assert new_bike.components['bell'] == another_bell
 
 
