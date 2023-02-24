@@ -1,6 +1,3 @@
-from src.component import (Bell, Brakes, Chain, Tyres)
-
-
 class Bike:
     def __init__(self, bell, brakes, chain, tyres):
         self.components = {
