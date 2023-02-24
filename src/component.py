@@ -42,12 +42,7 @@ class Bell(Component):
 
 
     def use(self, multiplier=1):
-        if self.check_condition() == 'Broken':
-            return False
-
         self.current_state += 1 * multiplier
-
-        return True
 
 
 class Brakes(Component):
@@ -56,12 +51,7 @@ class Brakes(Component):
 
 
     def use(self, multiplier=1):
-        if self.check_condition() == 'Broken':
-            return False
-
         self.current_state += 2 * multiplier
-
-        return True
 
 
 class Chain(Component):
@@ -70,12 +60,7 @@ class Chain(Component):
 
 
     def use(self, multiplier=1):
-        if self.check_condition() == 'Broken':
-            return False
-
         self.current_state += 3 * multiplier
-
-        return True
 
 
 class Tyres(Component):
@@ -84,9 +69,4 @@ class Tyres(Component):
 
 
     def use(self, multiplier=1):
-        if self.check_condition() == 'Broken':
-            return False
-
         self.current_state += 4 * multiplier
-
-        return True
