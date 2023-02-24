@@ -7,9 +7,11 @@ class Bike:
             'tyres': tyres
         }
 
+
     def use_components(self):
         for key in self.components:
             self.components[key].use()
+
 
     def ride(self):
         all_component_states = [
@@ -33,6 +35,7 @@ class Bike:
 
         print(message)
         return message
+
 
     def ring_bell(self):
 
@@ -58,6 +61,7 @@ class RacingBike(Bike):
     def __init__(self, bell, brakes, chain, tyres):
         super().__init__(bell, brakes, chain, tyres)
 
+
     def use_components(self):
         self.components['chain'].use(1.05)
         self.components['brakes'].use()
@@ -70,6 +74,7 @@ class BMXBike(Bike):
         super().__init__(bell, None, chain, tyres)
         del self.components['brakes']
 
+
     def use_components(self):
         self.components['chain'].use()
         self.components['bell'].use()
@@ -79,6 +84,7 @@ class BMXBike(Bike):
 class MountainBike(Bike):
     def __init__(self, bell, brakes, chain, tyres):
         super().__init__(bell, brakes, chain, tyres)
+
 
     def use_components(self):
         self.components['chain'].use(0.85)
@@ -90,6 +96,7 @@ class MountainBike(Bike):
 class StreetBike(Bike):
     def __init__(self, bell, brakes, chain, tyres):
         super().__init__(bell, brakes, chain, tyres)
+
 
     def use_components(self):
         self.components['chain'].use()
