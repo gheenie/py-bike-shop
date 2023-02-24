@@ -4,7 +4,6 @@ from src.service_person import (ServicePerson)
 
 
 def test_has_current_bike_property_with_bike_instance():
-
     new_bell = Bell(0, 10)
     new_brakes = Brakes(0, 20)
     new_chain = Chain(0, 30)
@@ -18,7 +17,6 @@ def test_has_current_bike_property_with_bike_instance():
 
 
 def test_order_parts_should_replace_any_broken_parts_to_pristine():
-
     new_bell = Bell(0, 10)
     new_brakes = Brakes(20, 20)
     new_chain = Chain(0, 30)
@@ -35,9 +33,15 @@ def test_order_parts_should_replace_any_broken_parts_to_pristine():
     assert new_bike.components['brakes'] is not new_brakes
     assert new_bike.components['tyres'] is not new_tyres
 
+    second_bike = Bike(new_bell, new_brakes, new_chain, new_tyres)
+    john.current_bike = second_bike
+    john.order_parts()
+
+    assert new_bike.components['brakes'] is not second_bike.components['brakes']
+    assert new_bike.components['tyres'] is not second_bike.components['tyres']
+
 
 def test_service_parts_should_change_any_fragile_poor_parts_to_good():
-
     new_bell = Bell(2, 10)
     new_brakes = Brakes(10, 20)
     new_chain = Chain(26, 30)
@@ -60,7 +64,6 @@ def test_service_parts_should_change_any_fragile_poor_parts_to_good():
 
 
 def test_oil_should_change_brake_chain_bell_from_good_to_pristine():
-
     new_bell = Bell(2, 10)
     new_brakes = Brakes(12, 20)
     new_chain = Chain(1, 30)
@@ -83,7 +86,6 @@ def test_oil_should_change_brake_chain_bell_from_good_to_pristine():
 
 
 def test_pump_wheels_tyres_from_good_to_pristine():
-
     new_bell = Bell(2, 10)
     new_brakes = Brakes(12, 20)
     new_chain = Chain(1, 30)
@@ -110,6 +112,7 @@ def test_pump_wheels_tyres_from_good_to_pristine():
     john.pump_wheels()
     assert new_bike.components['tyres'].current_state == 10
 
+
 def test_service_bike_should_invoke_service_parts_oil_pump_wheels_methods():
 
     new_bell = Bell(10, 10)
@@ -131,6 +134,7 @@ def test_service_bike_should_invoke_service_parts_oil_pump_wheels_methods():
     assert new_bike.components['chain'] is new_chain
     assert new_bike.components['brakes'] is new_brakes
     assert new_bike.components['tyres'] is new_tyres
+
 
 def test_check_safety_ring_bell_and_check_brakes_are_good_or_pristine():
 
@@ -170,8 +174,3 @@ def test_check_safety_ring_bell_and_check_brakes_are_good_or_pristine():
     result = john.check_safety()
 
     assert result == True
-
-
-   
-
-    
