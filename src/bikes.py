@@ -1,5 +1,5 @@
 class Bike:
-    def __init__(self, bell, brakes, chain, tyres):
+    def __init__(self, bell, brakes, chain, tyres): #alternative would be to pass in components as dictionary
         self.components = {
             'bell': bell,
             'brakes': brakes,
@@ -55,6 +55,10 @@ class Bike:
 
         print(message)
         return message
+
+    # def __eq__(self?):
+    # def __str__(self?):
+
 
 
 class RacingBike(Bike):

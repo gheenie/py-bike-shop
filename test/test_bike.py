@@ -14,12 +14,13 @@ def test_initializing_bike():
     assert new_bike.components['brakes'] is new_brakes
     assert new_bike.components['chain'] is new_chain
     assert new_bike.components['tyres'] is new_tyres
-
     new_bell.use()
     assert new_bike.components['bell'].current_state == 1
     new_bike.components['bell'].use()
     assert new_bell.current_state == 2
+    assert new_bell.max_lifespan == 10
 
+    # new_bell = Bell(2, 10)
     # another_bell = Bell(2, 10)
     # assert new_bike.components['bell'] == another_bell
 

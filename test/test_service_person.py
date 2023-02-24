@@ -150,7 +150,6 @@ def test_check_safety_ring_bell_and_check_brakes_are_good_or_pristine():
 
     assert result == False
 
-
     new_bell = Bell(9, 10)
     new_brakes = Brakes(2, 20)
     new_chain = Chain(19, 30)
@@ -174,3 +173,34 @@ def test_check_safety_ring_bell_and_check_brakes_are_good_or_pristine():
     result = john.check_safety()
 
     assert result == True
+
+
+def test_check_up_should_trigger_order_parts_if_any_broken():
+
+    new_bell = Bell(9, 10)
+    new_brakes = Brakes(2, 20)
+    new_chain = Chain(19, 30)
+    new_tyres = Tyres(40, 40)
+
+    new_bike = RacingBike(new_bell, new_brakes, new_chain, new_tyres)
+
+    john = ServicePerson(new_bike)
+    john.check_up()
+
+    assert new_bike.components['tyres'].current_state == 0
+    assert new_bike.components['tyres'] is not new_tyres
+
+
+def test_check_up_should_trigger_methods_and_return_result_of_ring_bell_on_success():
+
+    new_bell = Bell(9, 10)
+    new_brakes = Brakes(2, 20)
+    new_chain = Chain(2, 30)
+    new_tyres = Tyres(38, 40)
+
+    new_bike = RacingBike(new_bell, new_brakes, new_chain, new_tyres)
+
+    john = ServicePerson(new_bike)
+    result = john.check_up()
+
+    assert result == 'Ring! Ring! Ring!'
