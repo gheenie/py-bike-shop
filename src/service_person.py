@@ -32,15 +32,23 @@ class ServicePerson:
 
 
     def pump_wheels(self):
-        pass
+        tyres = self.current_bike.components['tyres']
+
+        if tyres.check_condition() == 'Good':
+            tyres.set_current_state('Pristine')
 
 
     def service_bike(self):
-        pass
+        self.service_parts()
+        self.oil()
+        self.pump_wheels()
 
 
     def check_safety(self):
-        pass
+        if self.current_bike.ring_bell() == 'The bell fell off!':
+            return False
+        
+        return self.current_bike.components['brakes'].check_condition() in ['Good', 'Pristine']
 
 
     def check_up(self):
