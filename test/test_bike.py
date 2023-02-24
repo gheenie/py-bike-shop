@@ -16,8 +16,11 @@ def test_initializing_bike():
     assert new_bike.components['tyres'] is new_tyres
 
     new_bell.use()
+
     assert new_bike.components['bell'].current_state == 1
+
     new_bike.components['bell'].use()
+
     assert new_bell.current_state == 2
 
 
@@ -86,12 +89,10 @@ def test_ride_when_component_is_fragile():
 
 
 def test_ring_when_components_good_or_perfect():
-
     new_bell = Bell(0, 10)
     new_brakes = Brakes(0, 20)
     new_chain = Chain(3, 30)
     new_tyres = Tyres(0, 40)
-
     new_bike = Bike(new_bell, new_brakes, new_chain, new_tyres)
 
     result = new_bike.ring_bell()
@@ -100,12 +101,10 @@ def test_ring_when_components_good_or_perfect():
 
 
 def test_ring_when_component_is_broken():
-
     new_bell = Bell(10, 10)
     new_brakes = Brakes(0, 20)
     new_chain = Chain(30, 30)
     new_tyres = Tyres(0, 40)
-
     new_bike = Bike(new_bell, new_brakes, new_chain, new_tyres)
 
     result = new_bike.ring_bell()
@@ -114,12 +113,10 @@ def test_ring_when_component_is_broken():
 
 
 def test_ring_when_component_is_fragile():
-
     new_bell = Bell(0, 10)
     new_brakes = Brakes(0, 20)
     new_chain = Chain(27, 30)
     new_tyres = Tyres(0, 40)
-
     new_bike = Bike(new_bell, new_brakes, new_chain, new_tyres)
 
     result = new_bike.ring_bell()
